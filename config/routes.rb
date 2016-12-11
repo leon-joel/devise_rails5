@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
+
   root 'pages#index'    # ここが pages/index だと rails g devise:views でエラーになる
 
   get 'pages/show'

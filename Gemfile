@@ -25,8 +25,15 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Deviceでの bcrypt_ext load error に対応: http://stackoverflow.com/questions/16945291/bcrypt-error-devise-ruby-2-0-and-rails-4-0
+# gem 'bcrypt-ruby', '~> 3.0.1'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
