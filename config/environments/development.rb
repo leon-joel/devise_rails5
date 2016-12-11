@@ -32,8 +32,17 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
-
-
+  # mail setting
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :authentication => :plain,
+      user_name: Rails.application.secrets.smtp_user_name,  # 秘密情報はsecrets.ymlに定義 ※確認: secrets.ymlが .gitignore されていますか？もしくは秘密情報を環境変数に待避していますか？
+      password: Rails.application.secrets.smtp_password,    # 同上
+      :enable_starttls_auto => true
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
