@@ -182,6 +182,10 @@ Devise.setup do |config|
   # :none  = No unlock strategy. You should handle unlocking by yourself.
   # config.unlock_strategy = :both
 
+  config.unlock_strategy = :email
+  config.maximum_attempts = 4       # この回数までは失敗できる
+
+
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
   # config.maximum_attempts = 20
